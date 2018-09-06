@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>骰子</title>
+    <style>
+      *{
+          margin:0;
+          padding:0;
+
+      }
+    body,html{
+        width:100%;
+        height:100%;
+    }
+    .wrapper{
+        perspective: 600px;
+        margin-left: 50px;
+        margin-top: 30px;
+    }
+    .content{
+        position:relative;
+        width: 100px;
+        height: 100px;
+        transform-style: preserve-3d;
+        transform: rotateX(-5deg) rotateY(-5deg);
+        line-height: 100px;
+        text-align:center;
+        color: #000;
+        animation: _rotate 5s linear infinite;
+    }
+    ._wrapper{
+        perspective: 600px;
+        margin-left: 50px;
+        margin-top: 200px;
+    }
+    ._content{
+        position:relative;
+        width: 100px;
+        height: 100px;
+        transform-style: preserve-3d;
+        transform: rotateX(-5deg) rotateY(-5deg);
+        line-height: 100px;
+        text-align:center;
+        color: #000;
+        animation: _rotate 5s linear infinite;
+    }
+    @keyframes _rotate{
+        50%{
+            transform: translateX(300px) translateY(200px) rotateX(180deg) rotateY(180deg);
+        }
+        100%{
+            transform: translateX(0) translateY(0) rotateX(360deg) rotateY(360deg);
+        }
+    }
+    .content div{
+        position: absolute;
+       width: 100%;
+       height: 100%;
+       /* background-color:#ff4000; */
+       backface-visibility: hidden;
+
+    }
+    ._content div{
+        position: absolute;
+       width: 100%;
+       height: 100%;
+       /* background-color:#ff4000; */
+       backface-visibility: visible;
+
+    }
+    ._before{
+        transform: rotateY(0deg) translateZ(50px);
+        background-color: rgba(58,58,124,0.7);
+    }
+    ._after{
+        transform: rotateY(180deg) translateZ(50px);
+        background-color: rgba(1,232,43,0.7);
+    }
+    ._left{
+        transform: rotateY(270deg) translateZ(50px);
+        background-color: rgba(232,138,97,0.7);
+    }
+    ._right{
+        transform:rotateY(90deg) translateZ(50px);
+        background-color: rgba(52,238,251,0.7);
+
+    }
+    ._top{
+        transform:rotateX(90deg) translateZ(50px);
+        background-color: rgba(123,12,77,0.7);
+    }
+    ._bottom{
+        transform: rotateX(270deg) translateZ(50px);
+        background-color: rgba(246,1,29,0.7);
+    }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <div class="_before">1</div>
+            <div class="_after">2</div>
+            <div class="_left">3</div>
+            <div class="_right">4</div>
+            <div class="_top">5</div>
+            <div class="_bottom">6</div>
+        </div>
+    </div>
+    <div class="_wrapper">
+        <div class="_content">
+            <div class="_before">1</div>
+            <div class="_after">2</div>
+            <div class="_left">3</div>
+            <div class="_right">4</div>
+            <div class="_top">5</div>
+            <div class="_bottom">6</div>
+        </div>
+    </div>
+</body>
+</html>
